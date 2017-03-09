@@ -1,5 +1,9 @@
 var App = window.App || {};
 
+var Truck = App.Truck;
+var DataStore = App.DataStore;
+var myTruck = new Truck('ncc-1701', new DataStore());
+
 QUnit.test('DataStore', function(assert) {
     var ds = new App.DataStore();
 
@@ -35,9 +39,9 @@ QUnit.test('DataStore', function(assert) {
 
 QUnit.test('truck', function(assert) {
 
-    //var myTruck = new Truck('ncc-1701', new DataStore());
+
     myTruck.createOrder({
-        emailAddress: 'me@goldfinger.com',
+        emailAddress: 'sam@test.com',
         coffee: 'double mocha'
     });
     myTruck.createOrder({
@@ -50,9 +54,9 @@ QUnit.test('truck', function(assert) {
     });
     myTruck.printOrders();
     assert.deepEqual(myTruck.getAllTruck(), {
-        'me@goldfinger.com': {
+        'sam@test.com': {
             'coffee': 'double mocha',
-            'emailAddress': 'me@goldfinger.com'
+            'emailAddress': 'sam@test.com'
         },
         'dr@no.com': {
             'coffee': 'decaf',
@@ -67,9 +71,9 @@ QUnit.test('truck', function(assert) {
     myTruck.deliverOrder('m@bond.com');
     myTruck.printOrders();
     assert.deepEqual(myTruck.getAllTruck(), {
-        'me@goldfinger.com': {
+        'sam@test.com': {
             'coffee': 'double mocha',
-            'emailAddress': 'me@goldfinger.com'
+            'emailAddress': 'sam@test.com'
         }
     });
 

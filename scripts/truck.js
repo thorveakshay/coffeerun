@@ -5,7 +5,7 @@
     function Truck(truckId, db) {
         this.truckId = truckId;
         this.db = db;
-        //console.log('running the Datastore function');
+
     }
     Truck.prototype.createOrder = function(order) {
         console.log('Adding order for ' + order.emailAddress);
@@ -29,8 +29,6 @@
     Truck.prototype.getAllTruck = function() {
         var customerArray = Object(this.db.getAll());
         return customerArray;
-
-
     };
 
     App.Truck = Truck;
